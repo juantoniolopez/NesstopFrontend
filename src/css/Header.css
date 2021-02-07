@@ -1,0 +1,15 @@
+nav {
+  background-color: #01687f;
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a.selected {
+  visibility: hidden;
+}
+
+.back {
+  visibility: hidden;
+}

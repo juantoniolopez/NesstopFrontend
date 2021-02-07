@@ -1,0 +1,11 @@
+export default PrivateRoute (){
+
+    return (
+
+        <>
+
+        
+        </>
+
+    )
+}

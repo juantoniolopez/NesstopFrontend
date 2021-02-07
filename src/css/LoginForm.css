@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap");
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  margin: 10px 50px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  /* border: 2px solid #ccc; */
+  border-radius: 25px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 10px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(180deg, #0389a6 0%, #01687f 100%);
+  border-radius: 10px;
+  color: white;
+  font-family: "Mulish";
+  font-size: 16px;
+  margin: 50px;
+}

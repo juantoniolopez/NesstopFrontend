@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap");
+
+section {
+  display: flex;
+  padding: 10px 30px 10px;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Mulish";
+  font-size: 20px;
+}
+
+.nav-item-login {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.nav-item-register {
+  text-decoration: none;
+  color: #ccc;
+}
+
+section a.selected {
+  color: #01687f;
+  text-decoration: underline;
+  font-size: 30px;
+}
