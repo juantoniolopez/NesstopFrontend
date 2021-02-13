@@ -1,7 +1,12 @@
+import Search from "../components/Search";
+import "./ListCompaniesUA.css";
+
 export default function ListCompaniesUA() {
   return (
     <>
-      <h1>Listado empresas</h1>
+      <Search></Search>
+
+      <div></div>
     </>
   );
 }

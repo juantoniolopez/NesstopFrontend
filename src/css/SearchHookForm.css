@@ -1,15 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap");
 
-form {
+#search {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
-  margin: 0px 50px;
 }
 
-input {
+#inputsearch {
   width: 100%;
   padding: 10px 30px;
   border: 2px solid #ccc;
@@ -19,11 +17,13 @@ input {
   margin: 10px;
 }
 
-input[type="submit"] {
+#submitsearch {
   background: linear-gradient(180deg, #0389a6 0%, #01687f 100%);
   border-radius: 10px;
   color: white;
   font-family: "Mulish";
-  font-size: 36px;
-  margin: 50px;
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+  width: 100%;
 }

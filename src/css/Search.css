@@ -1,0 +1,17 @@
+#search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 50px;
+}
+
+#inputsearch {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 10px;
+}

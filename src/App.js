@@ -9,15 +9,16 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import LandingUA from "./pages/LandingUA";
 import Login from "./pages/Login";
 import RegisterUser from "./pages/RegisterUser";
+import ListCompaniesUA from "./pages/ListCompaniesUA";
 
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
 // import CompanyUA from "./pages/CompanyUA";
-// import ListCompaniesUA from "./pages/ListCompaniesUA";
 // import EditUser from "./pages/EditUser";
 // import Evaluation from "./pages/Evaluation";
 // import ListCompaniesUR from "./pages/ListCompaniesUR";
@@ -67,9 +68,7 @@ function App() {
             <CompanyUA />
           </Route>
 
-          <Route path="/listcompaniesUA">
-            <ListCompaniesUA />
-          </Route>
+          
 
           <Route path="/login">
             <Login />
@@ -99,27 +98,35 @@ function App() {
           </NavLink>
         </div>
       </nav> */}
+      <div id="container">
+        <Header></Header>
+        <div id="main-content">
+          <Switch>
+            <Route path="/listcompaniesUA">
+              <ListCompaniesUA />
+            </Route>
 
-      <Header></Header>
+            <Route path="/RegisterUser">
+              <RegisterUser />
+            </Route>
 
-      <Switch>
-        <Route path="/RegisterUser">
-          <RegisterUser />
-        </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
 
-        <Route path="/login">
-          <Login></Login>
-        </Route>
+            <Route path="/home">
+              <LandingUA></LandingUA>
+            </Route>
 
-        <Route path="/home">
-          <LandingUA></LandingUA>
-        </Route>
+            <Route path="/">
+              Raiz
+              <Redirect to="/home"></Redirect>
+            </Route>
+          </Switch>
+        </div>
 
-        <Route path="/">
-          Raiz
-          <Redirect to="/home"></Redirect>
-        </Route>
-      </Switch>
+        <Footer></Footer>
+      </div>
     </Router>
   );
 }

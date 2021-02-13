@@ -1,57 +1,9 @@
-/* .header {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 320px;
-  height: 50px;
-
-  background-color: #01687f;
-  color: white;
-  text-align: center;
-}
-
-.button {
-  width: 280px;
-  height: 40px;
-  background: linear-gradient(180deg, #0389a6 0%, #01687f 100%);
-  border-radius: 10px;
-  color: #ffffff;
-  font-family: Mulish;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.logo {
-  text-align: center;
-}
-
-.login {
-  position: absolute;
-  left: 89.06%;
-  right: 3.12%;
-  top: 24%;
-  bottom: 26%;
-} */
-
-/* nav {
-  background-color: #01687f;
+#container {
   display: flex;
-  padding: 10px 25px;
-  align-items: center;
-  justify-content: space-between;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-nav a.selected {
-  visibility: hidden;
+#main-content {
+  flex-grow: 1;
 }
-
-.back {
-  visibility: hidden;
-} */
-
-/* img {
-  margin: 0px 0px;
-  text-align: center;
-} */
