@@ -10,10 +10,9 @@ export default function Search() {
       <input
         id="inputsearch"
         ref={register}
-        placeholder="Nombre de la empresa"
+        placeholder="Nombre o ciudad de la empresa"
         name="companyname"
       />
-      <input id="inputsearch" placeholder="Dirección" name="address" />
     </form>
   );
 }

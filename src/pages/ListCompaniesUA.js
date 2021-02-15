@@ -1,12 +1,15 @@
+import List from "../components/List";
 import Search from "../components/Search";
 import "./ListCompaniesUA.css";
 
-export default function ListCompaniesUA() {
+function ListCompaniesUA() {
   return (
     <>
       <Search></Search>
 
-      <div></div>
+      <List></List>
     </>
   );
 }
+
+export default ListCompaniesUA;

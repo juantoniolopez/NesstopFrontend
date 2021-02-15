@@ -9,7 +9,7 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        ref={register({ required: true, minLength: 2 })}
+        ref={register({ required: true, minLength: 4 })}
         id="email"
         name="email"
         type="email"
