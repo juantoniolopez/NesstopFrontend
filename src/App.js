@@ -15,6 +15,7 @@ import LandingUA from "./pages/LandingUA";
 import Login from "./pages/Login";
 import RegisterUser from "./pages/RegisterUser";
 import ListCompaniesUA from "./pages/ListCompaniesUA";
+import { AuthProvider } from "./shared/context/authContext";
 
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
@@ -98,35 +99,38 @@ function App() {
           </NavLink>
         </div>
       </nav> */}
-      <div id="container">
-        <Header></Header>
-        <div id="main-content">
-          <Switch>
-            <Route path="/listcompaniesUA">
-              <ListCompaniesUA />
-            </Route>
 
-            <Route path="/RegisterUser">
-              <RegisterUser />
-            </Route>
+      <AuthProvider>
+        <div id="container">
+          <Header></Header>
+          <div id="main-content">
+            <Switch>
+              <Route path="/listcompaniesUA">
+                <ListCompaniesUA />
+              </Route>
 
-            <Route path="/login">
-              <Login></Login>
-            </Route>
+              <Route path="/RegisterUser">
+                <RegisterUser />
+              </Route>
 
-            <Route path="/home">
-              <LandingUA></LandingUA>
-            </Route>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
 
-            <Route path="/">
-              Raiz
-              <Redirect to="/home"></Redirect>
-            </Route>
-          </Switch>
+              <Route path="/home">
+                <LandingUA></LandingUA>
+              </Route>
+
+              <Route path="/">
+                Raiz
+                <Redirect to="/home"></Redirect>
+              </Route>
+            </Switch>
+          </div>
+
+          <Footer></Footer>
         </div>
-
-        <Footer></Footer>
-      </div>
+      </AuthProvider>
     </Router>
   );
 }

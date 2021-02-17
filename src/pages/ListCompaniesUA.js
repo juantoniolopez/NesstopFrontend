@@ -1,13 +1,15 @@
-import List from "../components/List";
-import Search from "../components/Search";
+import CompanyList from "../components/CompanyList";
+// import Search from "../components/Search";
+import SearchBoxHook from "../components/SearchBoxHook";
 import "./ListCompaniesUA.css";
 
 function ListCompaniesUA() {
   return (
     <>
-      <Search></Search>
+      {/* <Search></Search> */}
+      <SearchBoxHook></SearchBoxHook>
 
-      <List></List>
+      <CompanyList></CompanyList>
     </>
   );
 }

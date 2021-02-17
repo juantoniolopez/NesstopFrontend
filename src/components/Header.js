@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "../css/Header.css";
+import LogOut from "./LogOut";
 
 function Header() {
   return (
@@ -19,6 +20,7 @@ function Header() {
           <img src="login.png" alt="Imagen de login"></img>
         </NavLink>
       </div>
+      <LogOut></LogOut>
     </nav>
   );
 }

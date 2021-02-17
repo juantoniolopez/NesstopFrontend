@@ -1,14 +1,50 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../css/RegisterUserForm.css";
+import useAuth from "../shared/hooks/useAuth";
 
 export default function RegisterUserForm() {
   const { register, handleSubmit } = useForm();
+  const [errorMessage, setErrorMessage] = useState("");
+  const { signUp } = useAuth();
 
-  const onSubmit = (data) => {};
+  const onRegister = async (data) => {
+    try {
+      await signUp(
+        data.now,
+        data.name,
+        data.surname,
+        data.dni,
+        data.email,
+        data.password
+      );
+    } catch (error) {
+      setErrorMessage(error);
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input ref={register} placeholder="Nombre" name="companyname" />
+    <form onSubmit={handleSubmit(onRegister)}>
+      <input
+        name="name"
+        ref={register({ required: true, minLength: 4 })}
+        id="name"
+        placeholder="Nombre"
+      />
+
+      <input
+        name="surname"
+        ref={register({ required: true, minLength: 4 })}
+        id="surname"
+        placeholder="Apellido"
+      />
+
+      <input
+        name="dni"
+        ref={register({ required: true, minLength: 4 })}
+        id="dni"
+        placeholder="DNI"
+      />
 
       <input placeholder="Dirección" name="address" />
 
@@ -21,6 +57,7 @@ export default function RegisterUserForm() {
       />
 
       <input
+        ref={register({ required: true, minLength: 2 })}
         id="password"
         type="password"
         name="password"
@@ -30,6 +67,7 @@ export default function RegisterUserForm() {
       <input className="photo" ref={register} type="file" name="photo"></input>
 
       <input id="submitregister" type="submit" value="Crear cuenta" />
+      {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}
     </form>
   );
 }
