@@ -11,18 +11,22 @@ import {
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import LandingUA from "./pages/LandingUA";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import RegisterUser from "./pages/RegisterUser";
 import ListCompaniesUA from "./pages/ListCompaniesUA";
 import { AuthProvider } from "./shared/context/authContext";
+import PrivateRoute from "./components/PrivateRoute";
+import ListCompaniesUR from "./pages/ListCompaniesUR";
+import PublicRoute from "./components/PublicRoute";
+import Admin from "./pages/Admin";
+import AdminRoute from "./components/AdminRoute";
 
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
 // import CompanyUA from "./pages/CompanyUA";
 // import EditUser from "./pages/EditUser";
 // import Evaluation from "./pages/Evaluation";
-// import ListCompaniesUR from "./pages/ListCompaniesUR";
 // import RegisterCompany from "./pages/RegisterCompany";
 
 function App() {
@@ -45,10 +49,7 @@ function App() {
             <RegisterCompany />
           </Route>
 
-          <Route path="/ListCompaniesUR">
-            <ListCompaniesUR />
-          </Route>
-
+          
           <Route path="/Evaluation">
             <Evaluation />
           </Route>
@@ -82,29 +83,17 @@ function App() {
         </Switch>
       </div> */}
 
-      {/* <nav>
-        <div className="back">
-          <NavLink to="/">
-            <img src="back.png" alt="Flecha volver"></img>
-          </NavLink>
-        </div>
-        <div>
-          <Link to="/home">
-            <img src="logohorizontal.png" alt="Logo de la empresa"></img>
-          </Link>
-        </div>
-        <div>
-          <NavLink to="/login" activeClassName="selected">
-            <img src="login.png" alt="Imagen de login"></img>
-          </NavLink>
-        </div>
-      </nav> */}
-
       <AuthProvider>
         <div id="container">
           <Header></Header>
           <div id="main-content">
             <Switch>
+              <Route path="/ListCompaniesUR">
+                <PrivateRoute>
+                  <ListCompaniesUR />
+                </PrivateRoute>
+              </Route>
+
               <Route path="/listcompaniesUA">
                 <ListCompaniesUA />
               </Route>
@@ -114,11 +103,19 @@ function App() {
               </Route>
 
               <Route path="/login">
-                <Login></Login>
+                <PublicRoute>
+                  <Login></Login>
+                </PublicRoute>
+              </Route>
+
+              <Route path="/admin">
+                <AdminRoute>
+                  <Admin></Admin>
+                </AdminRoute>
               </Route>
 
               <Route path="/home">
-                <LandingUA></LandingUA>
+                <Landing></Landing>
               </Route>
 
               <Route path="/">
