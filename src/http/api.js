@@ -59,7 +59,17 @@ export async function getCompanyDetail(id) {
   return userData.data;
 }
 
-export async function newUser(data) {
+// export async function newUser(data) {
+//   const body = new FormData();
+//   body.append("name", data.name);
+//   body.append("surname", data.surname);
+//   body.append("dni", data.dni);
+//   body.append("email", data.email);
+//   body.append("password", data.password);
+//   return await fetchFormData("/user/", { method: "POST", body });
+// }
+
+export async function signUpApi(data) {
   const body = new FormData();
   body.append("name", data.name);
   body.append("surname", data.surname);

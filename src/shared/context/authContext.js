@@ -1,10 +1,7 @@
 import React from "react";
 import decodeTokenData from "../utils/decodeTokenData";
 import { useState } from "react";
-import {
-  login,
-  // signUpApi
-} from "../../http/api";
+import { login, signUpApi } from "../../http/api";
 import { useHistory } from "react-router-dom";
 
 // 1 Creamos el contexto y exportamos para usar en el hook
@@ -31,11 +28,11 @@ export function AuthProvider({ children }) {
     history.push("/");
   };
 
-  //   // Método para registrarse
-  //   const signUp = async (name, surname, dni, email, password) => {
-  //     const message = await signUpApi();
-  //     return message;
-  //   };
+  // Método para registrarse
+  const signUp = async (data) => {
+    const message = await signUpApi();
+    return message;
+  };
 
   // Método que borra las credenciales del localStorage y del state
   const signOut = () => {
@@ -51,7 +48,7 @@ export function AuthProvider({ children }) {
       value={{
         userData,
         signIn,
-        //  signUp,
+        signUp,
         signOut,
         isUserLogged,
       }}
