@@ -27,12 +27,8 @@
 //   );
 // }
 
-export default function CompanyList(props) {
-  return (
-    <section>
-      {props.companies.map((company) => {
-        return <p>{company.name}</p>;
-      })}
-    </section>
-  );
-}
+// export default function List(props){
+//     return <section className='CompanyList'>
+//         {props.companies.map((company)=>{return <p>{company.name</p>})}
+//     </section>
+// }

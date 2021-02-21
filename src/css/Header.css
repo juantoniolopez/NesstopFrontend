@@ -1,7 +1,8 @@
 nav {
   background-color: #01687f;
   display: flex;
-  padding: 10px 20px;
+  flex-wrap: wrap;
+  padding: 5px 25px;
   align-items: center;
   justify-content: space-between;
 }
@@ -12,4 +13,29 @@ nav a.selected {
 
 .back {
   visibility: hidden;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+}
+
+.login:hover {
+  transform: scale(1.25);
+}
+
+.loginandout {
+  display: flex;
+  align-items: center;
+}
+
+.logout:hover {
+  transform: scale(1.2);
+}
+
+.logout {
+  color: #01687f;
+  background-color: white;
+  border-radius: 5px;
+  border: white;
+  font-size: 10px;
 }

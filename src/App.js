@@ -22,10 +22,10 @@ import PublicRoute from "./components/PublicRoute";
 import Admin from "./pages/Admin";
 import AdminRoute from "./components/AdminRoute";
 
+// import EditUser from "./pages/EditUser";
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
 // import CompanyUA from "./pages/CompanyUA";
-// import EditUser from "./pages/EditUser";
 // import Evaluation from "./pages/Evaluation";
 // import RegisterCompany from "./pages/RegisterCompany";
 
@@ -54,9 +54,7 @@ function App() {
             <Evaluation />
           </Route>
 
-          <Route path="/EditUser">
-            <EditUser />
-          </Route>
+          
 
           <Route path="/EditCompany">
             <EditCompany />
@@ -86,6 +84,7 @@ function App() {
       <AuthProvider>
         <div id="container">
           <Header></Header>
+
           <div id="main-content">
             <Switch>
               <Route path="/ListCompaniesUR">
@@ -93,6 +92,12 @@ function App() {
                   <ListCompaniesUR />
                 </PrivateRoute>
               </Route>
+
+              {/* <Route path="/EditUser">
+                <PrivateRoute>
+                  <EditUser />
+                </PrivateRoute>
+              </Route> */}
 
               <Route path="/listcompaniesUA">
                 <ListCompaniesUA />

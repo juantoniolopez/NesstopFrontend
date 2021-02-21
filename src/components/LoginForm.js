@@ -28,7 +28,7 @@ export default function LoginForm() {
 
       <input
         name="password"
-        ref={register({ required: true, minLength: 6 })}
+        ref={register({ required: true, minLength: 4 })}
         id="password"
         type="password"
         placeholder="Password"

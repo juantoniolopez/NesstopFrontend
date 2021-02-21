@@ -4,7 +4,9 @@ function LogOut() {
   const { signOut } = useAuth();
   return (
     <>
-      <button onClick={signOut}>LOG OUT</button>
+      <button className="logout" onClick={signOut}>
+        LOG OUT
+      </button>
     </>
   );
 }

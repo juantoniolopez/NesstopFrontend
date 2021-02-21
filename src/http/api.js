@@ -1,7 +1,9 @@
 const apiUrl = "http://localhost:4000";
 
 async function fetchFormData(path, { body, method }) {
-  fetch(`${apiUrl}${path}`, { body, method });
+  const token = localStorage.getItem("token");
+  const headers = new Headers({ Authorization: token });
+  fetch(`${apiUrl}${path}`, { body, method, headers });
 }
 
 async function fetchNesstopApi(path, { body, method }) {
@@ -36,15 +38,6 @@ export async function login(email, password) {
   return token;
 }
 
-// const now = new Date();
-
-// export async function signUpApi(name, surname, dni, email, password) {
-//   return await fetchNesstopApi("/user", {
-//     method: "POST",
-//     body: { name, surname, dni, email, password },
-//   });
-// }
-
 export async function getUserInfo(userId) {
   const userData = await fetchNesstopApi(`/user/${userId}`, {
     method: "GET",
@@ -58,16 +51,6 @@ export async function getCompanyDetail(id) {
   });
   return userData.data;
 }
-
-// export async function newUser(data) {
-//   const body = new FormData();
-//   body.append("name", data.name);
-//   body.append("surname", data.surname);
-//   body.append("dni", data.dni);
-//   body.append("email", data.email);
-//   body.append("password", data.password);
-//   return await fetchFormData("/user/", { method: "POST", body });
-// }
 
 export async function signUpApi(data) {
   const body = new FormData();
