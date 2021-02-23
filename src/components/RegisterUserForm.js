@@ -1,31 +1,28 @@
-import { useState } from "react";
+// import { useState } from "react";
 import useAuth from "../shared/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import "../css/RegisterUserForm.css";
-// import { newUser } from "../http/api";
 
 export default function RegisterUserForm() {
-  const { register, handleSubmit } = useForm();
-  const [errorMessage, setErrorMessage] = useState("");
-  const [statusMessage, setstatusMessage] = useState("");
-  const { signUp } = useAuth();
+  const { register, handleSubmit, errors } = useForm();
+  // const [errorMessage, setErrorMessage] = useState("");
+  // const [statusMessage, setstatusMessage] = useState("");
+  const { signUpUser } = useAuth();
 
-  const onRegister = async (data) => {
-    try {
-      const serverResponse = await signUp(data);
-      if (errorMessage.length > 0) {
-        setErrorMessage("");
-      }
-      if (serverResponse.message) {
-        setstatusMessage(serverResponse.message);
-      }
-    } catch (error) {
-      setErrorMessage(error);
-    }
+  const onRegister = (data) => {
+    signUpUser(data);
   };
-
-  // const onRegister = (data) => {
-  //   newUser(data);
+  //   try {
+  //     const serverResponse = await signUp(data);
+  //     if (errorMessage.length > 0) {
+  //       setErrorMessage("");
+  //     }
+  //     if (serverResponse.message) {
+  //       setstatusMessage(serverResponse.message);
+  //     }
+  //   } catch (error) {
+  //     setErrorMessage(error);
+  //   }
   // };
 
   return (
@@ -36,6 +33,9 @@ export default function RegisterUserForm() {
         id="name"
         placeholder="Nombre"
       />
+      {errors.name && (
+        <p className="error">Escribe un nombre que tenga minimo 4 letras</p>
+      )}
 
       <input
         name="surname"
@@ -43,6 +43,9 @@ export default function RegisterUserForm() {
         id="surname"
         placeholder="Apellido"
       />
+      {errors.surname && (
+        <p className="error">Escribe un nombre que tenga minimo 4 letras</p>
+      )}
 
       <input
         name="dni"
@@ -50,6 +53,7 @@ export default function RegisterUserForm() {
         id="dni"
         placeholder="DNI"
       />
+      {errors.dni && <p className="error">Escribe tu DNI con letra </p>}
 
       <input placeholder="Dirección" name="address" />
 
@@ -60,6 +64,7 @@ export default function RegisterUserForm() {
         type="email"
         placeholder="Email"
       />
+      {errors.email && <p className="error">Escribe un mail valido</p>}
 
       <input
         ref={register({ required: true, minLength: 2 })}
@@ -69,22 +74,20 @@ export default function RegisterUserForm() {
         placeholder="Password"
       />
 
-      <input
+      {errors.password && <p className="error">Escribe un contraseña válida</p>}
+
+      {/* <input
         id="photo"
         className="photo"
         ref={register}
         type="file"
         name="photo"
-      ></input>
+      ></input> */}
 
-      <input
-        ref={register}
-        id="submitregister"
-        type="submit"
-        value="Crear cuenta"
-      />
-      {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
-      {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}
+      <input id="submitregister" type="submit" value="Crear cuenta" />
+
+      {/* {statusMessage.length > 0 && <p>{statusMessage}</p>}
+      {errorMessage.length > 0 && <p>{errorMessage}</p>} */}
     </form>
   );
 }

@@ -1,7 +1,13 @@
+import NavLoginRegister from "../components/NavLoginRegister";
+import NavRegisterUserCompany from "../components/NavRegisterUserCompany";
+import RegisterCompanyForm from "../components/RegisterCompanyForm";
+
 export default function RegisterCompany() {
   return (
     <>
-      <h1>Pagina de registro de empresa nueva</h1>
+      <NavLoginRegister></NavLoginRegister>
+      <NavRegisterUserCompany></NavRegisterUserCompany>
+      <RegisterCompanyForm></RegisterCompanyForm>
     </>
   );
 }

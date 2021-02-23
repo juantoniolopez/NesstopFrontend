@@ -38,26 +38,33 @@ export async function login(email, password) {
   return token;
 }
 
-export async function getUserInfo(userId) {
-  const userData = await fetchNesstopApi(`/user/${userId}`, {
-    method: "GET",
-  });
-  return userData.data;
-}
-
-export async function getCompanyDetail(id) {
-  const userData = await fetchNesstopApi(`/company/:id/`, {
-    method: "GET",
-  });
-  return userData.data;
-}
-
-export async function signUpApi(data) {
+export async function newCompany(data) {
   const body = new FormData();
   body.append("name", data.name);
   body.append("surname", data.surname);
   body.append("dni", data.dni);
   body.append("email", data.email);
   body.append("password", data.password);
-  return await fetchFormData("/user/", { method: "POST", body });
+  return await fetchFormData("/user/", { body, method: "POST" });
+}
+
+export async function signUpApiUser(data) {
+  return await fetchNesstopApi("/user/", {
+    body: data,
+    method: "POST",
+  });
+}
+
+export async function signUpApiCompany(data) {
+  return await fetchNesstopApi("/company/", {
+    body: data,
+    method: "POST",
+  });
+}
+
+export async function getCompanies() {
+  const companyData = await fetchNesstopApi("/company/", {
+    method: "GET",
+  });
+  return companyData.data;
 }

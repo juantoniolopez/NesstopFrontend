@@ -21,13 +21,13 @@ import ListCompaniesUR from "./pages/ListCompaniesUR";
 import PublicRoute from "./components/PublicRoute";
 import Admin from "./pages/Admin";
 import AdminRoute from "./components/AdminRoute";
+import RegisterCompany from "./pages/RegisterCompany";
 
 // import EditUser from "./pages/EditUser";
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
 // import CompanyUA from "./pages/CompanyUA";
 // import Evaluation from "./pages/Evaluation";
-// import RegisterCompany from "./pages/RegisterCompany";
 
 function App() {
   return (
@@ -45,10 +45,7 @@ function App() {
         <Switch>
           
 
-          <Route path="/RegisterCompany">
-            <RegisterCompany />
-          </Route>
-
+          
           
           <Route path="/Evaluation">
             <Evaluation />
@@ -103,8 +100,16 @@ function App() {
                 <ListCompaniesUA />
               </Route>
 
+              <Route path="/RegisterCompany">
+                <PublicRoute>
+                  <RegisterCompany />
+                </PublicRoute>
+              </Route>
+
               <Route path="/RegisterUser">
-                <RegisterUser />
+                <PublicRoute>
+                  <RegisterUser />
+                </PublicRoute>
               </Route>
 
               <Route path="/login">

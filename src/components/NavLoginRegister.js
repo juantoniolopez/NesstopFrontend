@@ -8,7 +8,7 @@ import "../css/NavLoginRegister.css";
 export default function NavLoginRegister() {
   return (
     <>
-      <section>
+      <section className="loginregister">
         <NavLink
           to="/login"
           className="nav-item-login"

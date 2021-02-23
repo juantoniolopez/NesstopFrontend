@@ -1,26 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap");
 
-section.loginregister {
+section {
   display: flex;
   padding: 10px 30px 10px;
   align-items: center;
   justify-content: space-around;
   font-family: "Mulish";
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.nav-item-user {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.nav-item-company {
+  text-decoration: none;
+  color: #ccc;
+}
+
+section a.selected {
+  color: #01687f;
+  text-decoration: underline;
   font-size: 20px;
 }
 
-.nav-item-login {
-  text-decoration: none;
-  color: #ccc;
-}
-
-.nav-item-register {
-  text-decoration: none;
-  color: #ccc;
-}
-
-section.loginregister a.selected {
+section.loginregister {
   color: #01687f;
   text-decoration: underline;
-  font-size: 30px;
+  font-size: 20px;
 }
