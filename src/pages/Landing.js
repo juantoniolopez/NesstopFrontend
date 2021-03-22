@@ -1,14 +1,31 @@
+import React, { useState, useEffect } from "react";
 import "./Landing.css";
 import ShowToLoggedInUser from "../components/ShowToLoggedInUser";
 import ShowToAdminUser from "../components/ShowToAdminUser";
-import SearchResult from "../components/SearchResult";
+import Search from "../components/Search";
 
-export default function Landing() {
+const Landing = () => {
+  // state de la  landing
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      if (search === "") return;
+
+      const url = `http://localhost:4000/company/`;
+      const response = await fetch(url);
+      const result = await response.json();
+
+      console.log(result);
+    };
+    fetchApi();
+  }, [search]);
+
   return (
     <>
       <div className="container">
         <h1>Landing Usuario Anónimo</h1>
-        <SearchResult></SearchResult>
+        <Search setSearch={setSearch} />
       </div>
       <ShowToLoggedInUser>
         <h2>Esto solo lo ve el usuario con sesión iniciada</h2>
@@ -19,4 +36,6 @@ export default function Landing() {
       </ShowToAdminUser>
     </>
   );
-}
+};
+
+export default Landing;

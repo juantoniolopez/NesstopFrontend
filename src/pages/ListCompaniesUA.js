@@ -1,7 +1,12 @@
+import SearchResult from "../components/SearchResult";
 import "./ListCompaniesUA.css";
 
-function ListCompaniesUA() {
-  return <></>;
-}
+const ListCompaniesUA = () => {
+  return (
+    <>
+      <SearchResult></SearchResult>
+    </>
+  );
+};
 
 export default ListCompaniesUA;

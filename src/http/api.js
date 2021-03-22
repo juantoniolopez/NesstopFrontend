@@ -45,6 +45,8 @@ export async function newCompany(data) {
   body.append("dni", data.dni);
   body.append("email", data.email);
   body.append("password", data.password);
+  body.append("city", data.city);
+
   return await fetchFormData("/user/", { body, method: "POST" });
 }
 
@@ -64,6 +66,13 @@ export async function signUpApiCompany(data) {
 
 export async function getCompanies() {
   const companyData = await fetchNesstopApi("/company/", {
+    method: "GET",
+  });
+  return companyData.data;
+}
+
+export async function getCompanyQuery(query) {
+  const companyData = await fetchNesstopApi(`/company/?search=${query}`, {
     method: "GET",
   });
   return companyData.data;

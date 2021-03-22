@@ -1,4 +1,11 @@
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
 nav {
+  --light-color: #ffffff;
+  --dark-color: rgba(174, 174, 192, 0.4);
   background-color: #01687f;
   display: flex;
   flex-wrap: wrap;

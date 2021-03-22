@@ -4,7 +4,7 @@ import useAuth from "../shared/hooks/useAuth";
 import { useState } from "react";
 
 export default function LoginForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
   const { signIn } = useAuth();
 
@@ -25,6 +25,7 @@ export default function LoginForm() {
         type="email"
         placeholder="Email"
       />
+      {errors.email && <p className="error">Usuario incorrecto</p>}
 
       <input
         name="password"
@@ -33,7 +34,14 @@ export default function LoginForm() {
         type="password"
         placeholder="Password"
       />
-
+      {errors?.password?.type === "required" && (
+        <p className="error">La contraseña es obligatoria</p>
+      )}
+      {errors?.password?.type === "minLength" && (
+        <p className="error">
+          La contraseña tiene que tener por lo menos 4 caracteres
+        </p>
+      )}
       <input type="submit" value="Iniciar Sesión" />
 
       {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}

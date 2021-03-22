@@ -22,7 +22,11 @@ export default function RegisterCompanyForm() {
         <p className="error">Escribe un nombre que tenga minimo 4 letras</p>
       )}
 
-      <input placeholder="Ciudad de la empresa" name="address" />
+      <input
+        placeholder="Ciudad de la empresa"
+        name="city"
+        ref={register({})}
+      />
 
       <input
         ref={register({ required: true, minLength: 2 })}

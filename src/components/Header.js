@@ -9,32 +9,34 @@ import ShowToLoggedInUser from "./ShowToLoggedInUser";
 function Header() {
   return (
     <>
-      <nav>
-        <div className="logo">
-          <Link to="/home">
-            <img src="logohorizontal.png" alt="Logo de la empresa"></img>
-          </Link>
-        </div>
-        <div className="loginandout">
-          <div className="login">
-            <PublicRoute>
-              <NavLink to="/login" activeClassName="selected">
-                <img src="login.png" alt="Imagen de login"></img>
-              </NavLink>
-            </PublicRoute>
+      <div className="header">
+        <nav>
+          <div className="logo">
+            <Link to="/home">
+              <img src="logohorizontal.png" alt="Logo de la empresa"></img>
+            </Link>
           </div>
-          <div className="logout">
-            <ShowToLoggedInUser>
-              <LogOut></LogOut>
-            </ShowToLoggedInUser>
+          <div className="loginandout">
+            <div className="login">
+              <PublicRoute>
+                <NavLink to="/login" activeClassName="selected">
+                  <img src="login.png" alt="Imagen de login"></img>
+                </NavLink>
+              </PublicRoute>
+            </div>
+            <div className="logout">
+              <ShowToLoggedInUser>
+                <LogOut></LogOut>
+              </ShowToLoggedInUser>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      <div className="back">
-        <NavLink to="/">
-          <img src="back.png" alt="Flecha volver"></img>
-        </NavLink>
+        <div className="back">
+          <NavLink to="/">
+            <img src="back.png" alt="Flecha volver"></img>
+          </NavLink>
+        </div>
       </div>
     </>
   );

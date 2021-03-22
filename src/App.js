@@ -97,7 +97,9 @@ function App() {
               </Route> */}
 
               <Route path="/listcompaniesUA">
-                <ListCompaniesUA />
+                <PublicRoute>
+                  <ListCompaniesUA />
+                </PublicRoute>
               </Route>
 
               <Route path="/RegisterCompany">
