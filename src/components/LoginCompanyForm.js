@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import useAuth from "../shared/hooks/useAuth";
 import { useState } from "react";
 
-export default function LoginForm() {
+export default function LoginCompanyForm() {
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
-  const { signIn } = useAuth();
+  const { signInCompany } = useAuth();
 
   const onLogin = async (data) => {
     try {
-      await signIn(data.email, data.password);
+      await signInCompany(data.email, data.password);
     } catch (error) {
       setErrorMessage(error);
     }

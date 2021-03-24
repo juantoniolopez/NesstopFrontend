@@ -1,21 +1,19 @@
-import useAuth from "../shared/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import "../css/RegisterUserForm.css";
 import { useRef } from "react";
+import useAuth from "../shared/hooks/useAuth";
 
 export default function RegisterCompanyForm() {
   const { register, handleSubmit, errors, watch } = useForm();
-  const { signUpCompany } = useAuth();
 
   const password = useRef({});
 
   password.current = watch("password", "");
 
-  console.log(errors);
+  const { signUpCompany } = useAuth();
 
   const onRegister = (data) => {
-    const { city, email, name, password } = data;
-    signUpCompany({ city, email, name, password });
+    signUpCompany(data);
   };
 
   return (
@@ -33,8 +31,12 @@ export default function RegisterCompanyForm() {
       <input
         placeholder="Ciudad de la empresa"
         name="city"
-        ref={register({})}
+        ref={register({ required: true, minLength: 2 })}
+        id="city"
       />
+      {errors.city && (
+        <p className="error">Escribe un nombre que tenga minimo 2 letras</p>
+      )}
 
       <input
         ref={register({ required: true, minLength: 2 })}
@@ -54,6 +56,7 @@ export default function RegisterCompanyForm() {
       />
 
       {errors.password && <p className="error">Escribe un contraseña válida</p>}
+
       <input
         ref={register({
           required: true,

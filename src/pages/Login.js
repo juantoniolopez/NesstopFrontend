@@ -1,4 +1,4 @@
-import LoginForm from "../components/LoginForm";
+import LoginUserForm from "../components/LoginUserForm";
 import NavLoginRegister from "../components/NavLoginRegister";
 import NavLoginUserCompany from "../components/NavLoginUserCompany";
 
@@ -7,7 +7,7 @@ export default function Login() {
     <>
       <NavLoginRegister></NavLoginRegister>
       <NavLoginUserCompany></NavLoginUserCompany>
-      <LoginForm></LoginForm>
+      <LoginUserForm></LoginUserForm>
     </>
   );
 }

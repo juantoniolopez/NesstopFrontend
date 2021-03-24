@@ -38,24 +38,12 @@ export default function RegisterUserForm() {
       )}
 
       <input
-        name="surname"
-        ref={register({ required: true, minLength: 4 })}
-        id="surname"
-        placeholder="Apellido"
-      />
-      {errors.surname && (
-        <p className="error">Escribe un nombre que tenga minimo 4 letras</p>
-      )}
-
-      <input
         name="dni"
         ref={register({ required: true, minLength: 4 })}
         id="dni"
         placeholder="DNI"
       />
       {errors.dni && <p className="error">Escribe tu DNI con letra </p>}
-
-      <input placeholder="Dirección" name="address" />
 
       <input
         ref={register({ required: true, minLength: 2 })}
@@ -75,14 +63,6 @@ export default function RegisterUserForm() {
       />
 
       {errors.password && <p className="error">Escribe un contraseña válida</p>}
-
-      <input
-        id="photo"
-        className="photo"
-        ref={register}
-        type="file"
-        name="photo"
-      ></input>
 
       <input id="submitregister" type="submit" value="Crear cuenta" />
 
