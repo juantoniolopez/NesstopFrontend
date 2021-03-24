@@ -1,13 +1,21 @@
 import useAuth from "../shared/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import "../css/RegisterUserForm.css";
+import { useRef } from "react";
 
 export default function RegisterCompanyForm() {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, watch } = useForm();
   const { signUpCompany } = useAuth();
 
+  const password = useRef({});
+
+  password.current = watch("password", "");
+
+  console.log(errors);
+
   const onRegister = (data) => {
-    signUpCompany(data);
+    const { city, email, name, password } = data;
+    signUpCompany({ city, email, name, password });
   };
 
   return (
@@ -46,6 +54,22 @@ export default function RegisterCompanyForm() {
       />
 
       {errors.password && <p className="error">Escribe un contraseña válida</p>}
+      <input
+        ref={register({
+          required: true,
+          minLength: 2,
+          validate: (value) =>
+            value === password.current || "Las contraseñas no coinciden",
+        })}
+        id="repeatpassword"
+        type="password"
+        name="repeatpassword"
+        placeholder="Repeat Password"
+      />
+
+      {errors.repeatpassword && (
+        <p className="error">{errors.repeatpassword.message}</p>
+      )}
 
       <input id="submitregister" type="submit" value="Crear cuenta" />
     </form>

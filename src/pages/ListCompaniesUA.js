@@ -1,9 +1,10 @@
 import SearchResult from "../components/SearchResult";
-import "./ListCompaniesUA.css";
+import Search from "../components/Search";
 
 const ListCompaniesUA = () => {
   return (
     <>
+      <Search></Search>
       <SearchResult></SearchResult>
     </>
   );

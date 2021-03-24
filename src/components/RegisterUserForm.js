@@ -76,13 +76,13 @@ export default function RegisterUserForm() {
 
       {errors.password && <p className="error">Escribe un contraseña válida</p>}
 
-      {/* <input
+      <input
         id="photo"
         className="photo"
         ref={register}
         type="file"
         name="photo"
-      ></input> */}
+      ></input>
 
       <input id="submitregister" type="submit" value="Crear cuenta" />
 

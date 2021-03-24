@@ -13,20 +13,19 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
+import LoginCompany from "./pages/LoginCompany";
 import RegisterUser from "./pages/RegisterUser";
 import ListCompaniesUA from "./pages/ListCompaniesUA";
 import { AuthProvider } from "./shared/context/authContext";
 import PrivateRoute from "./components/PrivateRoute";
-import ListCompaniesUR from "./pages/ListCompaniesUR";
 import PublicRoute from "./components/PublicRoute";
 import Admin from "./pages/Admin";
 import AdminRoute from "./components/AdminRoute";
 import RegisterCompany from "./pages/RegisterCompany";
-
-// import EditUser from "./pages/EditUser";
+import EditUser from "./pages/EditUser";
 // import EditCompany from "./pages/EditCompany";
 // import CompanyUR from "./pages/CompanyUR";
-// import CompanyUA from "./pages/CompanyUA";
+import CompanyUA from "./pages/CompanyUA";
 // import Evaluation from "./pages/Evaluation";
 
 function App() {
@@ -44,15 +43,10 @@ function App() {
         <Link to="/listCompaniesUA" className=""></Link>
         <Switch>
           
-
-          
-          
           <Route path="/Evaluation">
             <Evaluation />
           </Route>
-
-          
-
+        
           <Route path="/EditCompany">
             <EditCompany />
           </Route>
@@ -60,12 +54,6 @@ function App() {
           <Route path="/companyUR">
             <CompanyUR />
           </Route>
-
-          <Route path="/companyUA">
-            <CompanyUA />
-          </Route>
-
-          
 
           <Route path="/login">
             <Login />
@@ -84,22 +72,18 @@ function App() {
 
           <div id="main-content">
             <Switch>
-              <Route path="/ListCompaniesUR">
-                <PrivateRoute>
-                  <ListCompaniesUR />
-                </PrivateRoute>
-              </Route>
-
-              {/* <Route path="/EditUser">
+              <Route path="/EditUser">
                 <PrivateRoute>
                   <EditUser />
                 </PrivateRoute>
-              </Route> */}
+              </Route>
 
-              <Route path="/listcompaniesUA">
-                <PublicRoute>
-                  <ListCompaniesUA />
-                </PublicRoute>
+              <Route path="/companyua">
+                <CompanyUA />
+              </Route>
+
+              <Route path="/listcompaniesua">
+                <ListCompaniesUA />
               </Route>
 
               <Route path="/RegisterCompany">
@@ -117,6 +101,12 @@ function App() {
               <Route path="/login">
                 <PublicRoute>
                   <Login></Login>
+                </PublicRoute>
+              </Route>
+
+              <Route path="/logincompany">
+                <PublicRoute>
+                  <LoginCompany></LoginCompany>
                 </PublicRoute>
               </Route>
 

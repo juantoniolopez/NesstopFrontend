@@ -26,14 +26,19 @@ const Landing = () => {
       <div className="container">
         <h1>Landing Usuario Anónimo</h1>
         <Search setSearch={setSearch} />
-      </div>
-      <ShowToLoggedInUser>
-        <h2>Esto solo lo ve el usuario con sesión iniciada</h2>
-      </ShowToLoggedInUser>
 
-      <ShowToAdminUser>
-        <h2>Esto solo lo ve el ADMIN</h2>
-      </ShowToAdminUser>
+        <ShowToLoggedInUser>
+          <h2>Esto solo lo ve el usuario con sesión iniciada</h2>
+          <p>esto es un parrafo de prueba</p>
+        </ShowToLoggedInUser>
+
+        <hr></hr>
+
+        <ShowToAdminUser>
+          <h2>Esto solo lo ve el ADMIN</h2>
+          <p>parrafo que solo ve el admin de la app</p>
+        </ShowToAdminUser>
+      </div>
     </>
   );
 };

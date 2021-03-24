@@ -77,3 +77,10 @@ export async function getCompanyQuery(query) {
   });
   return companyData.data;
 }
+
+export async function getCompanyDetail(company_id) {
+  const companyData = await fetchNesstopApi(`/company/${company_id}`, {
+    method: "GET",
+  });
+  return companyData.data;
+}

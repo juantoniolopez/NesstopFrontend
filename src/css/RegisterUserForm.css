@@ -14,3 +14,7 @@
 #submitregister {
   margin: 20px;
 }
+
+.textarea {
+  height: 10rem;
+}
